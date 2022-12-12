@@ -1,4 +1,5 @@
 About The Project
+
 Web console for easier management of ABC Book's users and borrowing/returning of books.
 (Backend only)
 
@@ -16,7 +17,7 @@ Clone the repo
 git clone https://github.com/YushengLei/abc-book.git
 
 How to Run
-python app.py to start the web application
+python app.py to start the web application, using virtual environment if possible
 
 CRUD of book/user objects (Can be ran using Postman or any other API access):
 localhost/books
@@ -24,10 +25,11 @@ Fields: title (string), description(string), genre(string), author(string), year
 
 localhost/users
 Fields: name(string), role(int), dateJoined(string)
-for Role field, 0 - admin, 1 - editor, 2 - user
+for Role field: 0 - admin, 1 - editor, 2 - user
 
 Example:
 localhost/users (POST)
+field: name - yu, role - 1
 Results:
 
 {
@@ -49,11 +51,13 @@ Results:
 ]
 
 Structure:
-Project structure is simply split into frontend and backend component for now. Since project is quite small. The templates/html files are for frontend purposes which are not involved in this project as of now.
+Project structure is simply split into frontend and backend component for now. Since project is quite small. The templates/html files are for frontend purposes which are not involved in this project yet.
 
 How I designed the APIs:
 APIs are written in python flash, with CRUD for both users and books. GET method is used for reading, POST method for creation of objects, PATCH method for updating, DELETE method for deleting objects.
 Example: users/<idx> (DELETE) to remove user, books/<idx> (PATCH) to edit selected book
+
+Data formats are written in json.
 
 For borrowing and returning of books, they are written in /return<idx> and /borrow/<idx>  respectively. The boolean availStatus is set to True/False respectively when successfully borrowed/returned
 
