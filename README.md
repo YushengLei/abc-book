@@ -54,7 +54,7 @@ Project structure is simply split into frontend and backend component for now. S
 APIs are written in python flash, with CRUD for both users and books. GET method is used for reading, POST method for creation of objects, PATCH method for updating, DELETE method for deleting objects.
 Example: users/<idx> (DELETE) to remove user, books/<idx> (PATCH) to edit selected book
 
-Data formats are written in json.
+Data formats from API are written in json.
 
 For borrowing and returning of books, they are written in /return<idx> and /borrow/<idx>  respectively. The boolean availStatus is set to True/False respectively when successfully borrowed/returned
 
