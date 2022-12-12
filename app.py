@@ -33,7 +33,6 @@ def get_user():
             mimetype="application/json"
         )
     except Exception as ex:
-        print(ex)
         return Response(
             response = json.dumps({"message":"cannot read users" }),status=500,mimetype="application/json")        
 
@@ -42,7 +41,7 @@ def create_user():
     try:
         user = {
             "name":request.form["name"],
-            "role":request.form["role"],
+            "role":int(request.form["role"]),
             "dateJoined":[date.today().strftime("%d/%m/%Y")]
         }
         dbResponse = db.users.insert_one(user)
@@ -62,7 +61,6 @@ def create_user():
 @app.route('/users/<idx>',methods=['PATCH'])
 def update_user(idx):
     try:
-        
         dbResponse = db.users.update_one(
             {"_id":ObjectId(idx)},
             {"$set":{"name":request.form["name"]}}
@@ -75,7 +73,6 @@ def update_user(idx):
             mimetype="application/json"
         )
     except Exception as ex:
-        print(ex)
         return Response(
             response = json.dumps({"message":"cannot update user" }),status=500,mimetype="application/json")        
 
@@ -91,7 +88,6 @@ def delete_user(idx):
             mimetype="application/json"
         )
     except Exception as ex:
-        print(ex)
         return Response(
             response = json.dumps({"message":"cannot delete user" }),status=500,mimetype="application/json")        
 
@@ -107,7 +103,6 @@ def get_book():
             mimetype="application/json"
         )
     except Exception as ex:
-        print(ex)
         return Response(
             response = json.dumps({"message":"cannot read books" }),status=500,mimetype="application/json")        
 
@@ -153,7 +148,6 @@ def update_book(idx,):
             mimetype="application/json"
         )
     except Exception as ex:
-        print(ex)
         return Response(
             response = json.dumps({"message":"cannot update book" }),status=500,mimetype="application/json")        
 
@@ -169,7 +163,6 @@ def delete_book(idx):
             mimetype="application/json"
         )
     except Exception as ex:
-        print(ex)
         return Response(
             response = json.dumps({"message":"cannot delete book" }),status=500,mimetype="application/json")        
 
@@ -188,7 +181,6 @@ def borrow_book(idx,user):
             mimetype="application/json"
         )
     except Exception as ex:
-        print(ex)
         return Response(
             response = json.dumps({"message":"error borrowing book" }),status=500,mimetype="application/json")        
 
@@ -207,7 +199,6 @@ def return_book(idx):
             mimetype="application/json"
         )
     except Exception as ex:
-        print(ex)
         return Response(
             response = json.dumps({"message":"error returning book" }),status=500,mimetype="application/json")        
 
