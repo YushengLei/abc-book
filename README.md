@@ -1,4 +1,4 @@
-#### About The Project
+### About The Project
 
 Web console for easier management of ABC Book's users and borrowing/returning of books.
 (Backend only)
@@ -15,12 +15,14 @@ git clone https://github.com/YushengLei/abc-book.git
 #### How to Run
 python app.py to start the web application, using virtual environment if possible
 
-CRUD of book/user objects (Can be ran using Postman or any other API access):
-localhost/books
-Fields: title (string), description(string), genre(string), author(string), yearPublished(string), availStatus (bool), lastBorrower(string)
+CRUD of book/user objects:
 
-localhost/users
-Fields: name(string), role(int), dateJoined(string)
+##### Books
+Fields: title (string), description (string), genre (string), author (string), yearPublished(string), availStatus (bool), lastBorrower (string)
+
+##### Users
+Fields: name (string), role (int), dateJoined (string)
+
 for Role field: 0 - admin, 1 - editor, 2 - user
 
 #### Example
